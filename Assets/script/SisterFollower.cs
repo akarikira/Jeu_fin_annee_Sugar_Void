@@ -12,7 +12,7 @@ public class SisterFollower : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private SpriteRenderer spriteRenderer;
-    private Vector2 lastDirection = Vector2.down; // Par défaut
+    private Vector2 lastDirection = Vector2.down; 
     private bool isAligning = false;
 
     void Start()
@@ -47,7 +47,7 @@ public class SisterFollower : MonoBehaviour
             Mathf.Round(Input.GetAxisRaw("Vertical"))
         );
 
-        if (input.x != 0) input.y = 0; // Pas de diagonales
+        if (input.x != 0) input.y = 0;
 
         if (input != Vector2.zero)
             lastDirection = input.normalized;

@@ -13,10 +13,10 @@ public class MouvementSimple : MonoBehaviour
 
     void Update()
     {
-        // Réinitialiser le mouvement
+
         mouvement = Vector2.zero;
 
-        // Détection des touches (une seule direction à la fois)
+
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
         {
             mouvement.y = 1f;
@@ -34,14 +34,13 @@ public class MouvementSimple : MonoBehaviour
             mouvement.x = 1f;
         }
 
-        // Normalisation pour éviter les diagonales
+
         if (mouvement.x != 0) mouvement.y = 0;
         if (mouvement.y != 0) mouvement.x = 0;
     }
+     void FixedUpdate()
+     {
 
-    void FixedUpdate()
-    {
-        // Application du mouvement
-        rb.linearVelocity = mouvement.normalized * vitesseDeplacement;
-    }
+    rb.linearVelocity = mouvement.normalized * vitesseDeplacement;
+     }
 }
