@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 4594d5d4b1488614eb970b64fde22fd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4276171771044118182
+    second: goth_animation (2)_0
+  - first:
+      213: 732295786309540684
+    second: goth_animation (2)_1
+  - first:
+      213: 7834920443966162258
+    second: goth_animation (2)_2
+  - first:
+      213: -8524656154634966934
+    second: goth_animation (2)_3
+  - first:
+      213: -4461718527252811281
+    second: goth_animation (2)_4
+  - first:
+      213: -7656651811236798078
+    second: goth_animation (2)_5
+  - first:
+      213: -7560546559966505281
+    second: goth_animation (2)_6
+  - first:
+      213: -4226434799072279998
+    second: goth_animation (2)_7
+  - first:
+      213: 7947123844990139214
+    second: goth_animation (2)_8
+  - first:
+      213: 2132822021654711036
+    second: goth_animation (2)_9
+  - first:
+      213: 558545268467227379
+    second: goth_animation (2)_10
+  - first:
+      213: -4594488478819641907
+    second: goth_animation (2)_11
+  - first:
+      213: -4598200610351416103
+    second: goth_animation (2)_12
+  - first:
+      213: 1759281102516580310
+    second: goth_animation (2)_13
+  - first:
+      213: 1057335379076163691
+    second: goth_animation (2)_14
+  - first:
+      213: 1028744044023971518
+    second: goth_animation (2)_15
+  - first:
+      213: -6399305666751591377
+    second: goth_animation (2)_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 27
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: goth_animation (2)_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51cc5c2e6cf7a4c0800000000000000
+      internalID: -4276171771044118182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bde754323a92a00800000000000000
+      internalID: 732295786309540684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2558c02f1aa3bbc60800000000000000
+      internalID: 7834920443966162258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_3
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68a2a6946652b980800000000000000
+      internalID: -8524656154634966934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_4
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 2
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1315f73aac412c0800000000000000
+      internalID: -4461718527252811281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_5
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 3
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281216e8ebb1eb590800000000000000
+      internalID: -7656651811236798078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_6
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 2
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb6156116fa831790800000000000000
+      internalID: -7560546559966505281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_7
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 3
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24282fe51ffa855c0800000000000000
+      internalID: -4226434799072279998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_8
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b7ca6080bd94e60800000000000000
+      internalID: 7947123844990139214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_9
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 2
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa0cd9145e499d10800000000000000
+      internalID: 2132822021654711036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_10
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fad6fd56f950c700800000000000000
+      internalID: 558545268467227379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_11
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 2
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5945732191d30c0800000000000000
+      internalID: -4594488478819641907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_12
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 2
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dcf40e38e8ef20c0800000000000000
+      internalID: -4598200610351416103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_13
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 3
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfee8777d83a6810800000000000000
+      internalID: 1759281102516580310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_14
+      rect:
+        serializedVersion: 2
+        x: 2397
+        y: 2
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68a94edce86cae00800000000000000
+      internalID: 1057335379076163691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_15
+      rect:
+        serializedVersion: 2
+        x: 2437
+        y: 3
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebef8dce145d64e00800000000000000
+      internalID: 1028744044023971518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goth_animation (2)_16
+      rect:
+        serializedVersion: 2
+        x: 2487
+        y: 3
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c802ca6691137a0800000000000000
+      internalID: -6399305666751591377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      goth_animation (2)_0: -4276171771044118182
+      goth_animation (2)_1: 732295786309540684
+      goth_animation (2)_10: 558545268467227379
+      goth_animation (2)_11: -4594488478819641907
+      goth_animation (2)_12: -4598200610351416103
+      goth_animation (2)_13: 1759281102516580310
+      goth_animation (2)_14: 1057335379076163691
+      goth_animation (2)_15: 1028744044023971518
+      goth_animation (2)_16: -6399305666751591377
+      goth_animation (2)_2: 7834920443966162258
+      goth_animation (2)_3: -8524656154634966934
+      goth_animation (2)_4: -4461718527252811281
+      goth_animation (2)_5: -7656651811236798078
+      goth_animation (2)_6: -7560546559966505281
+      goth_animation (2)_7: -4226434799072279998
+      goth_animation (2)_8: 7947123844990139214
+      goth_animation (2)_9: 2132822021654711036
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

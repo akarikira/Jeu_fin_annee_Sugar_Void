@@ -10,29 +10,43 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Mettre à jour l'animation même quand le joueur ne bouge pas
         UpdateAnimation();
     }
 
-    // FixedUpdate est mieux pour la physique
     void FixedUpdate()
     {
         rb.linearVelocity = moveInput * moveSpeed;
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void OnMove(InputValue value)
     {
-        moveInput = context.ReadValue<Vector2>();
+        Vector2 input = value.Get<Vector2>();
+
+        // Bloquer les diagonales : ne permettre qu'un seul axe à la fois
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            input.y = 0;
+            input.x = Mathf.Sign(input.x);
+        }
+        else if (Mathf.Abs(input.y) > Mathf.Abs(input.x))
+        {
+            input.x = 0;
+            input.y = Mathf.Sign(input.y) * 0.85f; // <-- Ralentissement léger sur l'axe Y
+        }
+        else
+        {
+            input = Vector2.zero;
+        }
+
+        moveInput = input;
     }
 
     private void UpdateAnimation()
@@ -44,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("InputX", moveInput.x);
             animator.SetFloat("InputY", moveInput.y);
-
-            // Enregistrer la dernière direction seulement quand on bouge
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
         }

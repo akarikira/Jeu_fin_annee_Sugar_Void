@@ -113,7 +113,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2a3a07e10552af84294f800f977625d9, type: 2}
+    m_Motion: {fileID: 7400000, guid: f1b79a1c8ec35e041b92c551caa73437, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -121,7 +121,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f1b79a1c8ec35e041b92c551caa73437, type: 2}
+    m_Motion: {fileID: 7400000, guid: 2a3a07e10552af84294f800f977625d9, type: 2}
     m_Threshold: 0.20000002
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -129,7 +129,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b1ba1aaf1bb09744b800727d0fe6969d, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6ff61f2417e2f7144af5f26090575153, type: 2}
     m_Threshold: 0.40000004
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -137,7 +137,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6ff61f2417e2f7144af5f26090575153, type: 2}
+    m_Motion: {fileID: 7400000, guid: b1ba1aaf1bb09744b800727d0fe6969d, type: 2}
     m_Threshold: 0.6
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -191,8 +191,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: LastinputX
-  m_BlendParameterY: LastinputY
+  m_BlendParameter: LastInputX
+  m_BlendParameterY: LastInputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.75
   m_UseAutomaticThresholds: 1
@@ -213,13 +213,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: LastinputX
+  - m_Name: LastInputX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: LastinputY
+  - m_Name: LastInputY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
