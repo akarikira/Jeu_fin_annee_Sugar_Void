@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    public List<Vector2> LatestPath=new List<Vector2>();
 
     void Start()
     {
@@ -19,6 +21,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateAnimation();
+
+        //Si ya deja qlq chose dans la liste on verifie si on a bougé depuis si on a bougé on ajoute notre pos actuelle dans la liste
+
+        if (LatestPath.Count > 0)
+        {
+            Vector2 previousPosition = LatestPath[LatestPath.Count - 1];
+            float distanceToLatestPoint = Vector2.Distance(previousPosition, transform.position);
+            if (distanceToLatestPoint >= 0.01f)
+            {
+                LatestPath.Add(transform.position);
+            }
+        }
+        else
+        {
+            LatestPath.Add (transform.position);
+        }
     }
 
     void FixedUpdate()
