@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
-    public List<Vector2> LatestPath=new List<Vector2>();
+    public List<Vector2> LatestPath = new List<Vector2>();
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            LatestPath.Add (transform.position);
+            LatestPath.Add(transform.position);
         }
     }
 

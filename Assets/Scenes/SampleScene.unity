@@ -930,7 +930,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0000033427461, y: -1.4942, z: -5.47}
+  m_LocalPosition: {x: 0.0000013409439, y: -1.4942, z: -5.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1064,8 +1064,10 @@ GameObject:
   - component: {fileID: 677594545}
   - component: {fileID: 677594544}
   - component: {fileID: 677594547}
+  - component: {fileID: 677594548}
+  - component: {fileID: 677594549}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: monster_jardin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,8 +1107,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 0.80571055}
+  m_Size: {x: 1, y: 1.6725225}
   m_Direction: 0
 --- !u!212 &677594545
 SpriteRenderer:
@@ -1152,7 +1154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -8856529360975776, guid: 09c4fcfb6e35b2d4a8af32dbae839ae9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1191,6 +1193,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!95 &677594548
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677594543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9095b0ed4e39de4d9c041fbd2b61555, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &677594549
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677594543}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &852764541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,7 +2623,6 @@ GameObject:
   - component: {fileID: 1921172585}
   - component: {fileID: 1921172588}
   - component: {fileID: 1921172587}
-  - component: {fileID: 1921172586}
   - component: {fileID: 1921172589}
   m_Layer: 8
   m_Name: fontaine
@@ -2596,61 +2646,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167541983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1921172586
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921172584}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.777779, y: 10}
-    newSize: {x: 17.777779, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -7.339683, y: -0.72835284}
-      - {x: -7.113144, y: -0.7157669}
-      - {x: -6.890407, y: -0.45120764}
-      - {x: -7.1759605, y: -0.52268517}
-      - {x: -7.1532245, y: -0.4839289}
-      - {x: -7.10957, y: -0.36514017}
-      - {x: -7.328348, y: -0.22785544}
-      - {x: -7.5617385, y: -0.50944996}
-  m_UseDelaunayMesh: 0
 --- !u!60 &1921172587
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2725,23 +2720,6 @@ PolygonCollider2D:
       - {x: 8.919433, y: -1.7285178}
       - {x: 8.885353, y: 0.6731609}
       - {x: 8.468402, y: -2.215012}
-    - - {x: -5.5849013, y: -4.355148}
-      - {x: -5.682516, y: -4.5605764}
-      - {x: -5.7430935, y: -4.4395785}
-      - {x: -6.075958, y: -4.1941304}
-      - {x: -5.8593855, y: -4.4383245}
-      - {x: -5.7469735, y: -4.6271286}
-      - {x: -5.713748, y: -4.7906475}
-      - {x: -5.515536, y: -4.7112374}
-      - {x: -5.482108, y: -4.5929074}
-      - {x: -5.6300993, y: -4.6271195}
-      - {x: -5.6065583, y: -4.52307}
-    - - {x: 4.4679766, y: -2.4987357}
-      - {x: 4.2727575, y: -2.4925392}
-      - {x: 4.124542, y: -2.5525098}
-      - {x: 4.297251, y: -2.7379045}
-      - {x: 4.5564547, y: -2.741682}
-      - {x: 4.692767, y: -2.5407887}
     - - {x: -4.4682508, y: -1.55995}
       - {x: -4.5694327, y: -1.2146037}
       - {x: -4.7474914, y: -1.0496163}
@@ -2776,21 +2754,6 @@ PolygonCollider2D:
       - {x: 1.2742587, y: -1.0153048}
       - {x: 1.6919076, y: -0.90794796}
       - {x: 2.5500119, y: -0.79760087}
-    - - {x: 2.0474982, y: 1.6841916}
-      - {x: 1.9935613, y: 1.7748412}
-      - {x: 1.9532739, y: 1.7868608}
-      - {x: 1.8739675, y: 1.4701209}
-      - {x: 2.0403273, y: 1.4639347}
-      - {x: 2.0648248, y: 1.4218055}
-      - {x: 2.1416419, y: 1.4275713}
-      - {x: 2.4191558, y: 1.3422508}
-      - {x: 2.2254648, y: 1.4033018}
-      - {x: 2.3786201, y: 1.4874405}
-      - {x: 2.203643, y: 1.5017767}
-      - {x: 2.1622505, y: 1.5980966}
-      - {x: 2.137513, y: 1.6120508}
-      - {x: 2.1662445, y: 1.6620681}
-      - {x: 2.1653304, y: 1.7868758}
     - - {x: -4.1890216, y: 1.6679409}
       - {x: -4.471144, y: 1.7598964}
       - {x: -5.5030847, y: 1.3637275}
@@ -2814,23 +2777,6 @@ PolygonCollider2D:
       - {x: 4.706218, y: 1.7661952}
       - {x: 4.711014, y: 1.8635514}
       - {x: 4.520052, y: 1.9066815}
-    - - {x: -2.0863025, y: 2.9340024}
-      - {x: -2.2819402, y: 2.7980478}
-      - {x: -2.4541748, y: 2.8375492}
-      - {x: -2.5584202, y: 2.878835}
-      - {x: -2.558841, y: 2.895117}
-      - {x: -2.520894, y: 2.7531984}
-      - {x: -2.472922, y: 2.713}
-      - {x: -2.3092916, y: 2.686974}
-      - {x: -2.248774, y: 2.708306}
-      - {x: -2.2164912, y: 2.7869766}
-      - {x: -2.0220037, y: 2.9192693}
-    - - {x: -6.041088, y: 3.3750255}
-      - {x: -6.066102, y: 3.595562}
-      - {x: -5.7920704, y: 3.3474586}
-      - {x: -5.5581164, y: 3.657264}
-      - {x: -5.611758, y: 3.392924}
-      - {x: -5.7906604, y: 3.2747576}
   m_UseDelaunayMesh: 0
 --- !u!212 &1921172588
 SpriteRenderer:
@@ -3073,6 +3019,7 @@ GameObject:
   - component: {fileID: 2008382216}
   - component: {fileID: 2008382215}
   - component: {fileID: 2008382217}
+  - component: {fileID: 2008382218}
   m_Layer: 7
   m_Name: Goth
   m_TagString: Untagged
@@ -3164,6 +3111,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gyaru: {fileID: 852764542}
   lateness: 20
+--- !u!95 &2008382218
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008382211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f54e83073e4766c4aa5f427911fd9bc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2017805061
 GameObject:
   m_ObjectHideFlags: 0
