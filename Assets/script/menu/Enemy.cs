@@ -7,11 +7,12 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;  // Référence au SpriteRenderer de l'ennemi
     private Color originalColor;  // Couleur originale de l'ennemi
 
+    public float contactDamageCooldown = 1f;  // Temps entre deux dégâts infligés au joueur
+    private bool canDamagePlayer = true;
+
     private void Start()
     {
-        // Récupérer le SpriteRenderer de l'ennemi
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // Sauvegarder la couleur d'origine de l'ennemi
         originalColor = spriteRenderer.color;
     }
 
@@ -19,7 +20,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        // Afficher l'ennemi en rouge lorsqu'il prend des dégâts
         StartCoroutine(FlashRed());
 
         if (health <= 0)
@@ -30,20 +30,35 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        // L'ennemi meurt
         Destroy(gameObject);  // Détruire l'ennemi
     }
 
     // Coroutine pour faire clignoter l'ennemi en rouge lorsqu'il prend des dégâts
     private IEnumerator FlashRed()
     {
-        // Changer la couleur de l'ennemi en rouge
         spriteRenderer.color = Color.red;
-
-        // Attendre une fraction de seconde (par exemple, 0.1s)
         yield return new WaitForSeconds(0.1f);
-
-        // Revenir à la couleur d'origine
         spriteRenderer.color = originalColor;
+    }
+
+    // Quand l'ennemi touche le joueur
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && canDamagePlayer)
+        {
+            PlayerHealth player = collision.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                player.TakeDamage(1);  // Le joueur prend 1 dégât
+                StartCoroutine(ContactDamageCooldown());
+            }
+        }
+    }
+
+    private IEnumerator ContactDamageCooldown()
+    {
+        canDamagePlayer = false;
+        yield return new WaitForSeconds(contactDamageCooldown);
+        canDamagePlayer = true;
     }
 }
