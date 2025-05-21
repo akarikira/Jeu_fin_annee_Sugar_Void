@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      black-screen-texture-acimaxbsvtwb9dwq_0: -874194559014797869
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
