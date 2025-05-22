@@ -3,20 +3,49 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 3;  // Vie de l'ennemi
-    private SpriteRenderer spriteRenderer;  // Référence au SpriteRenderer de l'ennemi
-    private Color originalColor;  // Couleur originale de l'ennemi
+    public int health = 3;
+    public float speed = 2f;
+    public float followRange = 6f;
+    public float contactDamageCooldown = 1f;
 
-    public float contactDamageCooldown = 1f;  // Temps entre deux dégâts infligés au joueur
     private bool canDamagePlayer = true;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private Transform player;
+    private Rigidbody2D rb;
+    private Animator animator;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    // Appelé lorsqu'un ennemi reçoit des dégâts
+    private void Update()
+    {
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if (distance <= followRange)
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+
+            // Animation de déplacement
+            animator.SetBool("isMoving", true);
+            animator.SetFloat("MoveX", direction.x);
+            animator.SetFloat("MoveY", direction.y);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -30,10 +59,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);  // Détruire l'ennemi
+        Destroy(gameObject);
     }
 
-    // Coroutine pour faire clignoter l'ennemi en rouge lorsqu'il prend des dégâts
     private IEnumerator FlashRed()
     {
         spriteRenderer.color = Color.red;
@@ -41,7 +69,6 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    // Quand l'ennemi touche le joueur
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && canDamagePlayer)
@@ -49,7 +76,7 @@ public class Enemy : MonoBehaviour
             PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null)
             {
-                player.TakeDamage(1);  // Le joueur prend 1 dégât
+                player.TakeDamage(1);
                 StartCoroutine(ContactDamageCooldown());
             }
         }

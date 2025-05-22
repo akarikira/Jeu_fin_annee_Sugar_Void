@@ -1,8 +1,7 @@
-using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,19 +15,33 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        // S'abonner aux événements de dialogue
+        if (DialogueSystem.Instance != null)
+        {
+            DialogueSystem.Instance.OnDialogueStart += DisableMovement;
+            DialogueSystem.Instance.OnDialogueEnd += EnableMovement;
+        }
+    }
+
+    void OnDestroy()
+    {
+        // Se désabonner pour éviter les memory leaks
+        if (DialogueSystem.Instance != null)
+        {
+            DialogueSystem.Instance.OnDialogueStart -= DisableMovement;
+            DialogueSystem.Instance.OnDialogueEnd -= EnableMovement;
+        }
     }
 
     void Update()
     {
         UpdateAnimation();
 
-        //Si ya deja qlq chose dans la liste on verifie si on a bougé depuis si on a bougé on ajoute notre pos actuelle dans la liste
-
         if (LatestPath.Count > 0)
         {
             Vector2 previousPosition = LatestPath[LatestPath.Count - 1];
-            float distanceToLatestPoint = Vector2.Distance(previousPosition, transform.position);
-            if (distanceToLatestPoint >= 0.01f)
+            if (Vector2.Distance(previousPosition, transform.position) >= 0.01f)
             {
                 LatestPath.Add(transform.position);
             }
@@ -46,9 +59,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        if (DialogueSystem.Instance != null && DialogueSystem.Instance.IsDialogueActive)
+            return;
+
         Vector2 input = value.Get<Vector2>();
 
-        // Bloquer les diagonales : ne permettre qu'un seul axe à la fois
+        // Bloquer les diagonales
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
             input.y = 0;
@@ -57,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Mathf.Abs(input.y) > Mathf.Abs(input.x))
         {
             input.x = 0;
-            input.y = Mathf.Sign(input.y) * 0.85f; // <-- Ralentissement léger sur l'axe Y
+            input.y = Mathf.Sign(input.y) * 0.85f;
         }
         else
         {
@@ -79,5 +95,17 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastInputX", moveInput.x);
             animator.SetFloat("LastInputY", moveInput.y);
         }
+    }
+
+    private void DisableMovement()
+    {
+        moveInput = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
+        enabled = false; // Désactive complètement le script
+    }
+
+    private void EnableMovement()
+    {
+        enabled = true;
     }
 }
