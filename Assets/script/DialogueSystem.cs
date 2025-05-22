@@ -1,100 +1,89 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using TMPro;
-using System.Collections.Generic;
 
 public class DialogueSystem : MonoBehaviour
 {
     public static DialogueSystem Instance;
 
-    public delegate void DialogueEvent();
-    public event DialogueEvent OnDialogueStart;
-    public event DialogueEvent OnDialogueEnd;
+    public GameObject panelGyaru;
+    public GameObject panelGoth;
 
-    [System.Serializable]
-    public class DialogueLine
-    {
-        [TextArea(3, 5)] public string text;
-        public Sprite speakerSprite;
-        public AudioClip soundEffect;
-    }
+    public TMP_Text textGyaru;
+    public TMP_Text textGoth;
 
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
-    public Image speakerImage;
-
-    private List<DialogueLine> currentLines;
+    private DialogueLine[] dialogueLines;
     private int currentIndex = 0;
-    public bool IsDialogueActive { get; private set; }
+    private bool isDialogueActive = false;
+
+    public bool IsDialogueActive => isDialogueActive;
+
+    public event System.Action OnDialogueStart;
+    public event System.Action OnDialogueEnd;
 
     void Awake()
     {
-        if (Instance == null)
+        Instance = this;
+        panelGyaru.SetActive(false);
+        panelGoth.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (!isDialogueActive) return;
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            Instance = this;
-            dialoguePanel.SetActive(false);
-        }
-        else
-        {
-            Destroy(gameObject);
+            currentIndex++;
+            if (currentIndex < dialogueLines.Length)
+            {
+                ShowLine();
+            }
+            else
+            {
+                EndDialogue();
+            }
         }
     }
 
-    public void StartDialogue(List<DialogueLine> lines)
+    public void ShowDialogue(DialogueLine[] lines)
     {
-        if (IsDialogueActive) return;
+        if (lines == null || lines.Length == 0)
+        {
+            Debug.LogError("DialogueSystem: dialogueLines est vide !");
+            return;
+        }
 
-        currentLines = lines;
+        dialogueLines = lines;
         currentIndex = 0;
-        IsDialogueActive = true;
-        dialoguePanel.SetActive(true);
+        isDialogueActive = true;
         OnDialogueStart?.Invoke();
-        ShowCurrentLine();
+        ShowLine();
     }
 
-    void ShowCurrentLine()
+    private void ShowLine()
     {
-        DialogueLine line = currentLines[currentIndex];
-        dialogueText.text = line.text;
+        string who = dialogueLines[currentIndex].characterName;
+        string what = dialogueLines[currentIndex].text;
 
-        if (speakerImage != null)
+        if (who == "Gyaru")
         {
-            speakerImage.sprite = line.speakerSprite;
-            speakerImage.gameObject.SetActive(line.speakerSprite != null);
+            panelGyaru.SetActive(true);
+            panelGoth.SetActive(false);
+            textGyaru.text = what;
         }
-
-        if (line.soundEffect != null)
+        else if (who == "Goth")
         {
-            AudioSource.PlayClipAtPoint(line.soundEffect, Camera.main.transform.position);
-        }
-    }
-
-    public void NextLine()
-    {
-        currentIndex++;
-        if (currentIndex >= currentLines.Count)
-        {
-            EndDialogue();
-        }
-        else
-        {
-            ShowCurrentLine();
+            panelGyaru.SetActive(false);
+            panelGoth.SetActive(true);
+            textGoth.text = what;
         }
     }
 
-    void EndDialogue()
+    private void EndDialogue()
     {
-        dialoguePanel.SetActive(false);
-        IsDialogueActive = false;
+        isDialogueActive = false;
+        panelGyaru.SetActive(false);
+        panelGoth.SetActive(false);
         OnDialogueEnd?.Invoke();
-    }
-
-    public void OnDialogueNext(InputAction.CallbackContext context)
-    {
-        if (IsDialogueActive && context.performed)
-        {
-            NextLine();
-        }
     }
 }
