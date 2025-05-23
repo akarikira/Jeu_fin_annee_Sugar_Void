@@ -1,15 +1,37 @@
 using UnityEngine;
 
-public class KeyPickup : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
-    public int keyIndex; // L'index de la cle (0, 1 ou 2)
+    public string itemName;
+    private bool isPlayerNear = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        if (other.CompareTag("Player"))
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.F))
         {
-            FindObjectOfType<KeyManager>().CollectKey(keyIndex);
-            Destroy(gameObject);
+            Collect();
+        }
+    }
+
+    private void Collect()
+    {
+        Debug.Log("Objet collecté : " + itemName);
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerNear = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerNear = false;
         }
     }
 }

@@ -38,12 +38,15 @@ public class LoadSceneScript : MonoBehaviour
             _player.transform.position = new Vector3(-0.07f, 2f, -64.4894f);
             _cameraSalle.SetActive(false);
             _cameraJardin.SetActive(true);
+
         }
         if(sceneName == "portail sortie")
         {
             _player.transform.position = new Vector3(-0.07f, 7.82f, -64.4894f);
             _cameraSalle.SetActive(true);
             _cameraJardin.SetActive(false);
+
         }
     }
+
 }

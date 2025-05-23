@@ -1,48 +1,35 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
     public int health = 3;
-    public float speed = 2f;
-    public float followRange = 6f;
     public float contactDamageCooldown = 1f;
-
     private bool canDamagePlayer = true;
+
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    private Transform player;
-    private Rigidbody2D rb;
-    private Animator animator;
+
+    private NavMeshAgent agent;
+    [SerializeField] Transform target;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void Update()
     {
-        if (player == null) return;
-
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        if (distance <= followRange)
+        if (target != null)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
-
-            // Animation de déplacement
-            animator.SetBool("isMoving", true);
-            animator.SetFloat("MoveX", direction.x);
-            animator.SetFloat("MoveY", direction.y);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
+            agent.SetDestination(target.position);
         }
     }
 

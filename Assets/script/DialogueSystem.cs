@@ -17,8 +17,9 @@ public class DialogueSystem : MonoBehaviour
 
     public bool IsDialogueActive => isDialogueActive;
 
-    public event System.Action OnDialogueStart;
-    public event System.Action OnDialogueEnd;
+    public delegate void DialogueEvent();
+    public event DialogueEvent OnDialogueStart;
+    public event DialogueEvent OnDialogueEnd;
 
     void Awake()
     {
@@ -47,12 +48,6 @@ public class DialogueSystem : MonoBehaviour
 
     public void ShowDialogue(DialogueLine[] lines)
     {
-        if (lines == null || lines.Length == 0)
-        {
-            Debug.LogError("DialogueSystem: dialogueLines est vide !");
-            return;
-        }
-
         dialogueLines = lines;
         currentIndex = 0;
         isDialogueActive = true;
