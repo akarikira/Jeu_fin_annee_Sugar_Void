@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
 
     private NavMeshAgent agent;
     [SerializeField] Transform target;
+
+    [Header(" Bloqueurs à désactiver à la mort")]
+    public GameObject[] objectsToDisableOnDeath; // ← ✅ Ceci doit apparaître dans l’inspecteur
 
     private void Start()
     {
@@ -46,6 +49,15 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        // ✅ Désactive tous les objets listés dans l’inspecteur
+        foreach (GameObject obj in objectsToDisableOnDeath)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+
         Destroy(gameObject);
     }
 
