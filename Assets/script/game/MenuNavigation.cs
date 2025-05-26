@@ -60,13 +60,6 @@ public class MenuNavigation : MonoBehaviour
         SceneManager.LoadScene("GameScene"); // ⚠️ Mets le vrai nom de ta scène
     }
 
-    public void Resume()
-    {
-        Debug.Log("Reprendre le jeu...");
-        // Tu peux désactiver le menu ici si besoin
-        gameObject.SetActive(false);
-    }
-
     public void ExitGame()
     {
         Debug.Log("Quitter le jeu...");

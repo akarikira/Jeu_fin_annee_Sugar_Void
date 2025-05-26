@@ -5,45 +5,42 @@ public class DropZone : MonoBehaviour
     public enum RequiredItem { Couteau, Fiole }
     public RequiredItem requiredItem;
 
-    public string successMessage = "Objet déposé.";
-    public string failMessage = "Tu n'as pas l'objet nécessaire.";
+    public string successMessage = "Objet déposé !";
+    public string failMessage = "Tu n’as pas l’objet requis.";
 
-    private bool playerInRange;
-    public PlayerInventory PlayerInventory;
+    private bool playerInRange = false;
+    private bool hasDeposited = false;
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.F) && !hasDeposited)
         {
-            if (HasRequiredItem())
+            bool hasItem = false;
+
+            switch (requiredItem)
             {
-                RemoveItemFromInventory();
+                case RequiredItem.Couteau:
+                    hasItem = PlayerInventory.hasKnife;
+                    if (hasItem) PlayerInventory.hasKnife = false;
+                    break;
+                case RequiredItem.Fiole:
+                    hasItem = PlayerInventory.hasVial;
+                    if (hasItem) PlayerInventory.hasVial = false;
+                    break;
+            }
+
+            if (hasItem)
+            {
+                hasDeposited = true;
                 MessageDisplay.Instance.ShowMessage(successMessage);
-                gameObject.SetActive(false); // ou déclenche autre chose
+                // Tu peux aussi faire apparaître un effet ici
+                DropManager.Instance.CheckAllDeposited();
             }
             else
             {
                 MessageDisplay.Instance.ShowMessage(failMessage);
             }
         }
-    }
-
-    bool HasRequiredItem()
-    {
-        if (requiredItem == RequiredItem.Couteau)
-            return PlayerInventory.hasKnife;
-        if (requiredItem == RequiredItem.Fiole)
-            return PlayerInventory.hasFiole;
-
-        return false;
-    }
-
-    void RemoveItemFromInventory()
-    {
-        if (requiredItem == RequiredItem.Couteau)
-            PlayerInventory.hasKnife = false;
-        if (requiredItem == RequiredItem.Fiole)
-            PlayerInventory.hasFiole = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -57,4 +54,6 @@ public class DropZone : MonoBehaviour
         if (other.CompareTag("Player"))
             playerInRange = false;
     }
+
+    public bool IsDeposited => hasDeposited;
 }

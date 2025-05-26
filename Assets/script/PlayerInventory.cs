@@ -1,23 +1,8 @@
 ﻿using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public static class PlayerInventory
 {
-    public PlayerInventory Instance;
-
-    public bool hasKnife = false;
-    public bool hasKey = false;
-    public bool hasFiole = false;
-    public bool hasFilledFiole = false;
-
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
+    public static bool hasKey = false;
+    public static bool hasKnife = false;
+    public static bool hasVial = false;
 }

@@ -4,33 +4,34 @@ public class DropManager : MonoBehaviour
 {
     public static DropManager Instance;
 
-    public bool knifeDropped = false;
-    public bool fioleDropped = false; // changé ici
+    public DropZone couteauZone;
+    public DropZone fioleZone;
 
     public DialogueLine[] dialogueAprèsDépôt;
-
-    private bool dialogueStarted = false;
+    public GameObject _canva;
 
     void Awake()
     {
         Instance = this;
     }
 
-    public void CheckForCompletion()
+    private void Start()
     {
-        if (knifeDropped && fioleDropped && !dialogueStarted)
-        {
-            dialogueStarted = true;
-            DialogueSystem.Instance.ShowDialogue(dialogueAprèsDépôt);
+        _canva.SetActive(false);
+    }
 
-            // Quand le dialogue du rituel est fini, on lance la scène finale
-            DialogueSystem.Instance.OnDialogueEnd += LancerFinalScene;
+    public void CheckAllDeposited()
+    {
+        if (couteauZone.IsDeposited && fioleZone.IsDeposited)
+        {
+            DialogueSystem.Instance.OnDialogueEnd += ActivateCanvas;
+            DialogueSystem.Instance.ShowDialogue(dialogueAprèsDépôt);
         }
     }
 
-    private void LancerFinalScene()
+    private void ActivateCanvas()
     {
-        DialogueSystem.Instance.OnDialogueEnd -= LancerFinalScene;
-        FindObjectOfType<FinalSceneManager>().StartFinalSequence();
+        _canva.SetActive(true);
+        DialogueSystem.Instance.OnDialogueEnd -= ActivateCanvas; // Important pour éviter de le faire plusieurs fois
     }
 }

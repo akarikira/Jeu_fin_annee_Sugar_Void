@@ -12,14 +12,14 @@ public class DoorManager : MonoBehaviour
     }
 
     // Appelée par la clé quand elle est collectée
-    //public void UseKey()
-    //{
-    //    hasKey = true;
+    public void UseKey()
+    {
+        hasKey = true;
 
-    //    if (hasKey)
-    //    {
-    //        door.SetActive(false); // Désactiver la porte
-    //        Debug.Log("🔓 Porte ouverte !");
-    //    }
-    //}
+        if (hasKey)
+        {
+            door.SetActive(false); // Désactiver la porte
+           Debug.Log("🔓 Porte ouverte !");
+        }
+    }
 }
